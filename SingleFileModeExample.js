@@ -7,12 +7,22 @@ BOOT({
 		isDevMode : true
 	},
 	SERVER_CONFIG : {
-		isNotUseDB : true
+		isNotUseDB : true,
+
+		MAIN : function(ONE) {
+
+			ONE.ROOM('test', function(room) {
+
+				room.on('on', function(data) {
+					console.log(data);
+				});
+			});
+		}
 	},
 	BROWSER_CONFIG : {
-		MAIN : function(BOX) {
+		MAIN : function(ONE) {
 
-			BOX.MATCH_VIEW({
+			ONE.MATCH_VIEW({
 				uris : ['', 'View'],
 				target : CLASS({
 
@@ -23,11 +33,21 @@ BOOT({
 					init : function(cls, inner, self) {'use strict';
 
 						var
+						// room
+						room = ONE.ROOM('test'),
+
 						// div
 						div,
 
 						// close.
 						close;
+
+						room.send({
+							methodName : 'on',
+							data : {
+								msg : 'MESSAGE!'
+							}
+						});
 
 						div = DIV({
 							style : {
