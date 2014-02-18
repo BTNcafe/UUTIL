@@ -1,4 +1,4 @@
-// run: nodemon WebPageExample.js
+// run: nodemon SingleFileModeExample.js
 
 require('./UPPERCASE_ONE/BOOT.js');
 
