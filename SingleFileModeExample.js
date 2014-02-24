@@ -7,7 +7,7 @@ BOOT({
 		isDevMode : true
 	},
 	SERVER_CONFIG : {
-		isNotUseDB : true,
+		isNotUsingDB : true,
 
 		MAIN : function(ONE) {
 
