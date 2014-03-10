@@ -1,1 +1,0 @@
-OVERRIDE({origin:CLOSE_WIN,func:function(){"use strict";global.CLOSE_WIN=METHOD({run:function(){opener=self,self.close()}})}});

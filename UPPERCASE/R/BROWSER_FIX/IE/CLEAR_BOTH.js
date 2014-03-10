@@ -1,1 +1,0 @@
-OVERRIDE({origin:CLEAR_BOTH,func:function(){"use strict";global.CLEAR_BOTH=METHOD({run:function(){return DIV({style:{clear:"both",height:1,overflow:"hidden"}})}})}});
