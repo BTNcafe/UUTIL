@@ -9,7 +9,8 @@ UUTIL.DBUtil = OBJECT({
 			//REQUIRED: params
 			//REQUIRED: params.box
 			//REQUIRED: params.dbName
-			//REQUIRED: params.id
+			//OPTIONAL: params.id
+			//OPTIONAL: params.filter
 			//OPTIONAL: errorHandler
 
 			var
@@ -26,14 +27,19 @@ UUTIL.DBUtil = OBJECT({
 			id = params.id,
 
 			// filter
-			filter;
+			filter = params.filter;
 
 			try {
 
-				UPPERSITE.db.collection(box.boxName + '.' + dbName).remove({
-					_id : new ObjectId(id),
-					__IS_ENABLED : false
-				}, function(error) {
+				if (filter === undefined) {
+					filter = {
+						_id : new ObjectId(id)
+					};
+				}
+
+				filter.__IS_ENABLED = false;
+
+				UPPERSITE.db.collection(box.boxName + '.' + dbName).remove(filter, function(error) {
 
 					if (error === null) {
 						if (errorHandler !== undefined) {
