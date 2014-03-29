@@ -1,4 +1,4 @@
-UUTIL.DBUtil = OBJECT({
+UUTIL.DB = OBJECT({
 	init : function(cls, inner, self) {
 
 		var
